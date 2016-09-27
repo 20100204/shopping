@@ -15,14 +15,16 @@ use app\models\ContactForm;
 class SiteController extends Controller
 {
 
-  public function actionEntry(){
-      $model = new EnterForm();
-      if($model->load(Yii::$app->request->post())&& $model->validate()){
-          return $this->render('enter-confirm',['model'=>$model]);
-      }else{
-          return $this->render('enter',['model'=>$model]);
-      }
-  }
+    public function actionEntry()
+    {
+        $model = new EnterForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            return $this->render('enter-confirm', ['model' => $model]);
+        } else {
+            return $this->render('enter', ['model' => $model]);
+        }
+    }
+
     /**
      * @inheritdoc
      */
@@ -72,7 +74,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-         
+
         return $this->render('index');
     }
 
@@ -83,6 +85,8 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
+       
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -136,7 +140,8 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionTestTest(){
+    public function actionTestTest()
+    {
 
         echo 'testtest';
     }
